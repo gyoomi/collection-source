@@ -6,7 +6,8 @@
 
 package com.gyoomi.source;
 
-import java.util.stream.Stream;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 类功能描述
@@ -17,15 +18,15 @@ import java.util.stream.Stream;
 public class ArrarListDemo {
 
     public static void main(String[] args) {
-        /*List list1 = new ArrayList();
-        list1.add(1);
-        list1.add("haha");
-        List list = new ArrayList(list1);
-        System.out.println(list);*/
-        int i = 2;
-        String[] arr = new String[10];
-        arr[i++] = "haha";
-        Stream.of(arr).forEach(System.out::println);
-        System.out.println(i);
+        List list = new ArrayList(10);
+        list.add(1);
+        list.add(2);
+        list.add(null);
+        list.add(3);
+        list.add(null);
+        list.add(null);
+        list.add(2 ,"2.5");
+        System.out.println(list.size());
+        System.out.println(list);
     }
 }
