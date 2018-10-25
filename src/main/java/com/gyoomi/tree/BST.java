@@ -6,6 +6,8 @@
 
 package com.gyoomi.tree;
 
+import java.util.Stack;
+
 /**
  * 类功能描述
  *
@@ -104,6 +106,34 @@ public class BST<E extends Comparable<E>> {
         System.out.println(node.e);
         preOrder(node.left);
         preOrder(node.right);
+    }
+
+    /**
+     * 二分搜索树的前序遍历的非递归实现
+     *
+     */
+    public void preOrderNR() {
+        preOrderNR(root);
+    }
+
+    /**
+     * 非递归的方式实现以node为根节点的而二分搜索树的前序遍历
+     *
+     * @param node
+     */
+    private void preOrderNR(Node node) {
+        Stack<Node> stack = new Stack<>();
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            Node curr = stack.pop();
+            System.out.println(curr.e);
+            if (curr.right != null) {
+                stack.push(curr.right);
+            }
+            if (curr.left != null) {
+                stack.push(curr.left);
+            }
+        }
     }
 
     /**
