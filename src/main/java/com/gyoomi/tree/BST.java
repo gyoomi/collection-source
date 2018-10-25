@@ -128,6 +128,28 @@ public class BST<E extends Comparable<E>> {
         inOrder(node.right);
     }
 
+    /**
+     * 二分搜索树后序遍历
+     *
+     */
+    public void postOrder() {
+        postOrder(root);
+    }
+
+    /**
+     * 后序遍历以node为节点的二分搜索树：recursion
+     *
+     * @param node
+     */
+    private void postOrder(Node node) {
+        if (node == null) {
+            return;
+        }
+        postOrder(node.left);
+        postOrder(node.right);
+        System.out.println(node.e);
+    }
+
     class Node {
         public E e;
         public Node left, right;

@@ -28,5 +28,7 @@ public class Main {
         /////////////////
         bst.inOrder();
         System.out.println();
+        bst.postOrder();
+        System.out.println();
     }
 }
