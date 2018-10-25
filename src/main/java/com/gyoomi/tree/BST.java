@@ -208,6 +208,72 @@ public class BST<E extends Comparable<E>> {
         }
         return maximum(node.right);
     }
+
+    /**
+     * 删除二分搜索树中最小节点，并且返回最小值
+     *
+     * @return
+     */
+    public E removeMin() {
+        E min = minimum();
+        root = removeMin(root);
+        return min;
+    }
+
+    /**
+     * 删除以node为根的二分搜索树中最小节点
+     * 返回删除节点后新的以node为根的二分搜索树
+     *
+     * @param node
+     * @return
+     */
+    private Node removeMin(Node node) {
+        if (node == null) {
+            return null;
+        }
+        if (node.left == null) {
+            Node rightNode = node.right;
+            node.right = null;
+            size--;
+            return rightNode;
+        }
+        node.left = removeMin(node.left);
+        return node;
+    }
+
+    /**
+     * 删除二分搜索树中最大节点，并且返回最大值
+     *
+     * @return
+     */
+    public E removeMax() {
+        E max = maximum();
+        root = removeMax(root);
+        return max;
+    }
+
+    /**
+     * 删除以node为根的二分搜索树中最大节点
+     * 返回删除节点后新的以node为根的二分搜索树
+     *
+     *
+     * @param node
+     * @return
+     */
+    private Node removeMax(Node node) {
+        if (node == null) {
+            return null;
+        }
+        if (node.right == null) {
+            Node leftNode = node.left;
+            node.left = null;
+            size--;
+            return leftNode;
+        }
+        node.right = removeMax(node.right);
+        return node;
+    }
+
     /**
      * 二分搜索树的中序遍历
      *

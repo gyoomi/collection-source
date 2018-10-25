@@ -15,7 +15,7 @@ package com.gyoomi.tree;
 public class Main {
     public static void main(String[] args) {
         BST<Integer> bst = new BST<>();
-        int[] nums = {5, 3, 6, 8, 4, 2};
+        int[] nums = {5, 3, 6, 8, 4, 2, 23, 8, 98, 7, -8};
         for (int num : nums) {
             bst.add(num);
         }
@@ -34,7 +34,11 @@ public class Main {
 //        System.out.println();
 //        bst.levelOrder();
 //        System.out.println();
-        System.out.println(bst.minimum());
-        System.out.println(bst.maximum());
+//        System.out.println(bst.minimum());
+//        System.out.println(bst.maximum());
+//        bst.removeMin();
+//        bst.inOrder();
+        bst.removeMax();
+        bst.inOrder();
     }
 }
