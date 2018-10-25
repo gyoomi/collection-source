@@ -6,6 +6,8 @@
 
 package com.gyoomi.tree;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 /**
@@ -132,6 +134,25 @@ public class BST<E extends Comparable<E>> {
             }
             if (curr.left != null) {
                 stack.push(curr.left);
+            }
+        }
+    }
+
+    /**
+     * 二分搜索树的层级遍历（广度优先遍历）
+     *
+     */
+    public void levelOrder() {
+        Queue<Node> list = new LinkedList<>();
+        list.add(root);
+        while (!list.isEmpty()) {
+            Node curr = list.remove();
+            System.out.println(curr.e);
+            if (curr.left != null) {
+                list.add(curr.left);
+            }
+            if (curr.right != null) {
+                list.add(curr.right);
             }
         }
     }

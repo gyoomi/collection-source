@@ -26,11 +26,13 @@ public class Main {
         //  / \    \   //
         // 2  4     8  //
         /////////////////
-        bst.preOrder();
-        System.out.println();
-        bst.preOrderNR();
-        System.out.println();
+//        bst.preOrder();
+//        System.out.println();
+//        bst.preOrderNR();
+//        System.out.println();
 //        bst.postOrder();
 //        System.out.println();
+        bst.levelOrder();
+        System.out.println();
     }
 }
