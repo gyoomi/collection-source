@@ -158,6 +158,57 @@ public class BST<E extends Comparable<E>> {
     }
 
     /**
+     * 返回二叉搜索树中最小值
+     *
+     * @return
+     */
+    public E minimum() {
+        if (size == 0) {
+            throw new IllegalArgumentException("BST is empty");
+        }
+        Node node = minimum(root);
+        return node.e;
+    }
+
+    /**
+     * 返回以node为根节点的二叉搜索树中的最小值所在的节点
+     *
+     * @param node
+     * @return
+     */
+    private Node minimum(Node node) {
+        if (node.left == null) {
+            return node;
+        }
+        return minimum(node.left);
+    }
+
+    /**
+     * 返回二叉搜索树中的最大值
+     *
+     * @return
+     */
+    public E maximum() {
+        if (size == 0) {
+            throw new IllegalArgumentException("BST is empty");
+        }
+        Node node = maximum(root);
+        return node.e;
+    }
+
+    /**
+     * 返回以node为根节点的二叉搜索树的最大值所在的节点
+     *
+     * @param node
+     * @return
+     */
+    private Node maximum(Node node) {
+        if (node.right == null) {
+            return node;
+        }
+        return maximum(node.right);
+    }
+    /**
      * 二分搜索树的中序遍历
      *
      */
