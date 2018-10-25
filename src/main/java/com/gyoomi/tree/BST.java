@@ -138,6 +138,7 @@ public class BST<E extends Comparable<E>> {
 
     /**
      * 后序遍历以node为节点的二分搜索树：recursion
+     * 典型应用：如C++的二分搜索树需要手动进行内存管理，所以在释放元素时，必须保证其子元素先释放
      *
      * @param node
      */
