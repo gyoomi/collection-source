@@ -48,19 +48,29 @@ public class ObjectDemo {
 
         @Override
         public boolean equals(Object obj) {
-            // 地址值相等，一定相同
+            // 1.地址值相等，一定相同
             if (this == obj) {
                 return true;
             }
-            // 为null或不是Person类型，一定不相同
-            if (obj == null || !(obj instanceof Person)) {
+            // 2.为null，一定不相等
+            if (obj == null) {
                 return false;
             }
+            // 3.检测是否是一个类，如果不是一个类直接返回false
+            if (getClass() != obj.getClass()) {
+                return false;
+            }
+            // 4.如果不是Person类型，一定不相同
+            if ( !(obj instanceof Person)) {
+                return false;
+            }
+            // 5.将obj转为对应的类型
             Person p = (Person) obj;
-            // 只有当id和名字都相等，这两个对象才算相同
+            // 6.对对象的属性进行比较，== 基本类型 equals是对象类型
             if (p.getId().equals(this.id) && p.getName().equals(this.name)) {
                 return true;
             }
+            // 6-2.如果是在子类，子类的equals方法要包含父类的equals方法。如在子类Student中
             return false;
         }
     }
@@ -77,20 +87,27 @@ public class ObjectDemo {
 
         @Override
         public boolean equals(Object obj) {
-            // 地址值相等，一定相同
+            // 1.地址值相等，一定相同
             if (this == obj) {
                 return true;
             }
-            // 为null或不是Person类型，一定不相同
-            if (obj == null || !(obj instanceof Student)) {
+            // 2.为null，一定不相等
+            if (obj == null) {
                 return false;
             }
-            Student s = (Student) obj;
-            // 只有当id和名字及classRoom都相等，这两个对象才算相同
-            if (super.getId().equals(s.getId()) && super.getName().equals(s.getName()) && this.classRoom.equals(s.getClassRoom())) {
-                return true;
+            // 3.检测是否是一个类，如果不是一个类直接返回false
+            if (getClass() != obj.getClass()) {
+                return false;
             }
-            return false;
+            // 4.如果不是Person类型，一定不相同
+            if ( !(obj instanceof Student)) {
+                return false;
+            }
+            // 5.将obj转为对应的类型
+            Student s = (Student) obj;
+            // 6.对对象的属性进行比较，== 基本类型 equals是对象类型
+            return super.equals(s) && this.classRoom.equals(s.getClassRoom());
+            // 6-2.如果是在子类，子类的equals方法要包含父类的equals方法。如在子类Student中
         }
 
         public String getClassRoom() {
